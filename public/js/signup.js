@@ -1,12 +1,20 @@
-import axios from 'axios'
+import axios from "axios";
 
-const signUpForm = document.getElementById(".signUp");
-console.log(signUpForm);
 
-signUpForm.on("submit", function (e) {
+$("#signUp").on("submit", async function (e) {
   e.preventDefault();
-  const email = $("#email").value;
-  const password = $("#password").value;
+  const email = $("#email").val();
+  const password = $("#password").val();
 
-  console.log(email, password, "working");
+  console.log(email, password);
+
+  const res = await axios({
+    method: "post",
+    url: "/users",
+    data: {
+      email: email,
+      password: password,
+    },
+  });
+  console.log(res);
 });
