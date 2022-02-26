@@ -1,3 +1,3 @@
-const users = import("../init_data.json");
+var users = []
 
-$(".users").text(users);
+$(".users").text();
